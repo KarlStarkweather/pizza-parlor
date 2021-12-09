@@ -31,7 +31,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 Describe: Pizza()
 
 Test: "It should include properties for size, crust and toppings"
-Code: Pizza("Large","Thin Crust","Cheese","Mushrooms","Pepperoni")
-Expected Output: all propeties of pizza contined in a pizza object
+Code: 
+  let pizza1 = new Pizza(small,"Thin Crust")
+  pizz1.toppings = [cheese,mushrooms,olives]
+Expected Output: all propeties of the pizza object should be visible from the console
 
 
