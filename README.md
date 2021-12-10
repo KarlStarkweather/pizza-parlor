@@ -28,12 +28,25 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## Specs
 
-Describe: Pizza()
+Describe: Pizza constructor
 
 Test: "It should include properties for size, crust and toppings"
 Code: 
   let pizza1 = new Pizza(small,"Thin Crust")
-  pizz1.toppings = [cheese,mushrooms,olives]
+  pizza1.toppings = [cheese,mushrooms,olives]
 Expected Output: all propeties of the pizza object should be visible from the console
 
-
+Test: "It should include a method which displays the order"
+Code: 
+  pizza1.showOrder()
+Expected Output:
+  Your Pizza Order:
+  
+  size: Small           $6.99
+  crust: Thin Crust
+  Toppings:
+    Cheese
+    Mushrooms           $3.00
+    Olives              $3.00
+  
+  Total:                $12.99
