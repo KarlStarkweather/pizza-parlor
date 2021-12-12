@@ -17,6 +17,32 @@ let olives = {name: "Olives", price: 3.00};
 let pepperoni = {name: "Pepperoni", price: 3.00};
 let sausage = {name: "Sausage", price: 3.00};
 
-let pizza1 = new Pizza(small,"Thin Crust");
+let pizza1 = new Pizza(small,"Pan Crust");
 pizza1.toppings = [cheese,mushrooms,olives];
 
+
+// UI Logic
+
+function toUSD(number) {
+  return (number).toLocaleString('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });  
+}
+
+$(document).ready(function() {
+  $("#show-order").click(function() {
+    $("#total").show();
+    $("#main-description").text(pizza1.size.name + " " + pizza1.crust);
+    $("#main-price").text(toUSD(pizza1.size.price));
+    let total = pizza1.size.price;
+    pizza1.toppings.forEach(function(item,index) {
+      $("#top" + index).text(item.name);  
+      if(item.hasOwnProperty("price")) {
+        $("#top" + index + "-price").text(toUSD(item.price));
+        total += item.price;
+      }
+    });
+    $("#total-price").text(toUSD(total));
+  }) 
+})
