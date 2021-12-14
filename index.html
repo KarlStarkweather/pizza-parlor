@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en-US">
   <head>
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -14,9 +15,9 @@
       <label for="size">Select a Pizza Size:</label>
       <select id="size-select" class="form-control">
         <option disabled selected>Select One</option>
-        <option>Large</option>
-        <option>Medium</option>
-        <option>Small</option>
+        <option value=0>Large</option>
+        <option value=1>Medium</option>
+        <option value=3>Small</option>
       </select>
     </div>
 
@@ -24,17 +25,15 @@
       <label for="crust">Select a Crust:</label>
       <select id="crust-select" class="form-control">
         <option disabled selected>Select One</option>
-        <option>Regular Crust</option>
-        <option>Thin Crust</option>
-        <option>Pan Pizza</option>
+        <option value="Regular Crust">Regular Crust</option>
+        <option value="Thin Crust">Thin Crust</option>
+        <option value="Pan Pizza">Pan Pizza</option>
       </select>
     </div>
 
 
     <div id="result">
       <button id="show-order">Show Order</button>
-      <!-- <p id="story-text">
-      </p> -->
       <table class="tg">
         <tbody>
           <tr>
