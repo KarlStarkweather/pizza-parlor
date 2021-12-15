@@ -1,3 +1,12 @@
+// Utility Logic
+
+function toUSD(number) {
+  return (number).toLocaleString('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });  
+}
+
 // Business Logic
 function Pizza(size,crust) {
   this.size = size;
@@ -33,20 +42,13 @@ function Topping(name,price) {
 
 // UI Logic
 
-function toUSD(number) {
-  return (number).toLocaleString('en-US', {
-    style: 'currency',
-    currency: 'USD',
-  });  
-}
-
 $(document).ready(function() {
   $("#show-order").click(function() {
     const sizeVal = $("#size-select").val();
     const selectedSize = new Size(sizeOptions[sizeVal][0],sizeOptions[sizeVal][1]);
     const selectedCrust = $("#crust-select").val();
     let order = new Pizza(selectedSize, selectedCrust);
-    $("#total").show();
+    $("#result").show();
     $("#main-description").text(order.size.name + " " + order.crust);
     $("#main-price").text(toUSD(order.size.price));
     let total = order.size.price;

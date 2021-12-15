@@ -1,8 +1,35 @@
 .tg {
   /* border: solid; */
-  width: 30%;
+  width: 300px;
 }
 
-#total {
+#result {
   display: none;
 };
+
+#pizza-type {
+  border: solid;
+  background-color: blue;
+  border-width: 200px; 
+  width: 200px;
+  padding: 20px;
+  margin: 20px;
+}
+
+#select-toppings {
+  border-width: 100px;
+  width: 200px;
+  padding: 20px;
+  margin: 20px;
+  border: solid;
+  background-color:cornsilk ;
+}
+
+#result {
+  /* border-width: 500px; */
+  width: 400px;
+  padding: 20px;
+  margin: 20px;
+  border: solid;
+  background-color:rgb(207, 200, 200) ;
+}

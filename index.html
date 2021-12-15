@@ -11,37 +11,38 @@
   <body>
     <h1>Pinky's Pizza Parlor</h1>
 
-    <div id="pizza-size">
-      <label for="size">Select a Pizza Size:</label>
+    <div class="container" id="pizza-type">
+      <!-- <label for="size">Select a Pizza Size:</label> -->
       <select id="size-select" class="form-control">
-        <option disabled selected>Select One</option>
-        <option value=0>Large</option>
-        <option value=1>Medium</option>
-        <option value=3>Small</option>
+        <option disabled selected>Click to Select a Pizza Size:</option>
+        <option value="0">Large</option>
+        <option value="1">Medium</option>
+        <option value="2">Small</option>
       </select>
-    </div>
 
-    <div id="pizza-crust">
-      <label for="crust">Select a Crust:</label>
+      <!-- <label for="crust">Select a Crust:</label> -->
       <select id="crust-select" class="form-control">
-        <option disabled selected>Select One</option>
+        <option disabled selected>Click to Select a Crust:</option>
         <option value="Regular Crust">Regular Crust</option>
         <option value="Thin Crust">Thin Crust</option>
         <option value="Pan Pizza">Pan Pizza</option>
       </select>
     </div>
 
-    <table id="selectToppings">
-      <tr><td><input type="checkbox" value="0"/>Cheese</td></tr>
-      <tr><td><input type="checkbox" value="1"/>Mushrooms</td></tr>
-      <tr><td><input type="checkbox" value="2"/>Olives</td></tr>
-      <tr><td><input type="checkbox" value="3"/>Pepperoni</td></tr>
-      <tr><td><input type="checkbox" value="4"/>Sausage</td></tr>
-    </table>
-  
-
-    <div id="result">
-      <button id="show-order">Show Order</button>
+    <div class = "container" id = "select-toppings">
+      <label for="select-toppings">Select Your Toppings</label>
+      <table id="selectToppings">
+        <tr><td><input type="checkbox" value="0"/>Cheese</td></tr>
+        <tr><td><input type="checkbox" value="1"/>Mushrooms</td></tr>
+        <tr><td><input type="checkbox" value="2"/>Olives</td></tr>
+        <tr><td><input type="checkbox" value="3"/>Pepperoni</td></tr>
+        <tr><td><input type="checkbox" value="4"/>Sausage</td></tr>
+      </table>
+    </div>
+    
+    <button id="show-order">Show Order</button>
+    <div class = "container" id="result">
+      
       <table class="tg">
         <tbody>
           <tr>
