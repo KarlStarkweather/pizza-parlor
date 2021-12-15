@@ -2,7 +2,7 @@
 function Pizza(size,crust) {
   this.size = size;
   this.crust = crust;
-  this.toppings = {};
+  this.toppings = [{}];
 };
 
 let sizeOptions = [
@@ -17,11 +17,18 @@ function Size(name,price) {
 };
 
 // options for toppings
-let cheese = {name: "Cheese"};
-let mushrooms = {name: "Mushrooms", price: 3.00};
-let olives = {name: "Olives", price: 3.00};
-let pepperoni = {name: "Pepperoni", price: 3.00};
-let sausage = {name: "Sausage", price: 3.00};
+let toppingOptions = [
+  ["Cheese",0],
+  ["Mushrooms",3],
+  ["Olives",3],
+  ["Pepperoni",3],
+  ["Sausage",3]
+];
+
+function Topping(name,price) {
+  this.name = name;
+  this.price = price;
+};
 
 
 // UI Logic
@@ -38,16 +45,24 @@ $(document).ready(function() {
     const sizeVal = $("#size-select").val();
     const selectedSize = new Size(sizeOptions[sizeVal][0],sizeOptions[sizeVal][1]);
     const selectedCrust = $("#crust-select").val();
-    console.log(selectedCrust);
     let order = new Pizza(selectedSize, selectedCrust);
     $("#total").show();
     $("#main-description").text(order.size.name + " " + order.crust);
     $("#main-price").text(toUSD(order.size.price));
     let total = order.size.price;
-    order.toppings = [cheese,mushrooms,olives];
+    let tblToppings = document.getElementById("selectToppings");
+    let chks = tblToppings.getElementsByTagName("INPUT");
+    
+    for (let index = 0; index < chks.length; index++) {
+      if (chks[index].checked) {
+        let top = new Topping(toppingOptions[index][0],toppingOptions[index][1]);
+        order.toppings.push(top);
+      };
+    };
+        
     order.toppings.forEach(function(item,index) {
       $("#top" + index).text(item.name);  
-      if(item.hasOwnProperty("price")) {
+      if(item.price>0) {
         $("#top" + index + "-price").text(toUSD(item.price));
         total += item.price;
       }
