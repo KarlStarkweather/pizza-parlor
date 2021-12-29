@@ -14,6 +14,17 @@ function Pizza(size,crust) {
   this.toppings = [{}];
 };
 
+Pizza.prototype.getPrice = function() {
+  let total = this.size.price;
+  this.toppings.forEach(function(item,index) {
+    if(item.price>0) {
+      total += item.price;
+    }
+  });
+  console.log(total)
+  return(toUSD(total));
+}
+
 let sizeOptions = [
   ["Large",12.99],
   ["Medium",9.99],
@@ -51,7 +62,6 @@ $(document).ready(function() {
     $("#result").show();
     $("#main-description").text(order.size.name + " " + order.crust);
     $("#main-price").text(toUSD(order.size.price));
-    let total = order.size.price;
     let tblToppings = document.getElementById("selectToppings");
     let chks = tblToppings.getElementsByTagName("INPUT");
     
@@ -66,9 +76,8 @@ $(document).ready(function() {
       $("#top" + index).text(item.name);  
       if(item.price>0) {
         $("#top" + index + "-price").text(toUSD(item.price));
-        total += item.price;
       }
     });
-    $("#total-price").text(toUSD(total));
+    $("#total-price").text(order.getPrice());
   }) 
 })
